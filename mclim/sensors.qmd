@@ -1,0 +1,17 @@
+---
+title: "Microclimate stations"
+editor: visual
+---
+
+# Basics
+
+
+Currently several WiFi Hubs with varying sensors and one base station each are connected via LoRa radio. The base station is equipped with wind vector, precipitation irradiance and temperature/humidity sensors. The WiFi Hub in turn uses any accessible WLAN to pass on the data via mobile network to a data server.
+
+# Mobile soil moisture/temperature unit
+
+## Hardware 
+
+## Setup
+
+## FAQ

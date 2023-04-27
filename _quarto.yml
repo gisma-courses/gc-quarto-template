@@ -1,0 +1,86 @@
+project: 
+  type: website
+  output-dir: docs
+  
+website:
+  open-graph: true
+  page-navigation: true  
+  title: "gisma knowledge base"
+  site-url: https://gisma-courses.github.io/gisma-knowledge-base
+  repo-url: https://github.com/gisma-courses/gisma-knowledge-base
+  repo-actions: [edit, issue]
+  search: 
+    location: navbar
+    type: textbox
+  page-footer: "gisma (2021)" 
+  twitter-card:
+    creator: "@creuden"
+  comments:
+    utterances:
+      repo: gisma-courses/gisma-knowledge-base
+  navbar:
+    logo: /images/logooil.jpg
+    left:
+      - icon: question-square-fill
+        text: FAQ
+        href: base/faq.qmd
+      - icon: file-slides-fill
+        text: Slides
+        href: slides/slidelist.qmd
+      - icon: check2-square
+        text: TestIt
+        href: assessment/slidelist.qmd        
+    right:
+      - icon: chat-left-text-fill
+        text: Ilias
+        href: https://ilias.uni-marburg.de/login.php?target=&client_id=UNIMR&cmd=force_login
+
+    
+         
+    tools: 
+      - icon: github
+        href: https://github.com/gisma-courses/gisma-knowledge-base
+        text: "gisma repo" 
+  sidebar:
+    # logo: /images/logo.jpg
+    pinned: true
+    align: center
+    style: "docked"
+    collapse-level: 1
+    contents:
+      - section: "Welcome"
+        contents:
+          - index.md
+          - base/about.md
+      - text: "---"
+      - section: "Low Cost UAV"
+        contents:
+          - uav/uav-index.qmd
+          - uav/listing1.qmd
+          - uav/products.qmd
+          # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-introduction/
+          #   text: Basic Readings        
+          # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-fieldwork/
+          #   text: uav/Flight Planning
+      - text: "---"
+      - section: "Micro-Climate"
+        contents:
+          - mclim/mc-index.qmd
+          - mclim/sensors.qmd
+
+#format: dokuwiki
+format:
+  html:
+    theme:
+      light: lumen
+      dark: [lumen, css/theme-dark.scss]
+    code-background: true
+    code-copy: true
+    css: css/styles.css
+    toc: true
+    link-external-icon: true
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/www\.quarto\.org\/custom'
+# filters:
+#   - include-files.lua
+#   - quarto
