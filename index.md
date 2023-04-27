@@ -22,6 +22,6 @@ comments: false
 
 ![](//images/climatroof-sp.jpg)
 
-# Welcome to the gisma knowledgebase web space
+# Welcome 
 
-This site concisely summarizes workflow knowledge and resources on a wide variety of GI, sensor-based data collection and modeling topics. It is explicitly designed as a practice-focused knowledge workshop
+This site concisely summarizes [...]

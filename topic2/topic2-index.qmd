@@ -1,5 +1,5 @@
 ---
-title: "Fine Offset: Weather and environmental sensors "
+title: "Example Topic 2"
 #comments: false
 
 image: ../images/froggit_1.jpg
@@ -46,37 +46,6 @@ a maximum of 2:
 
 For the basic weather parameters as rain, wind vector insolation temperature and humidity one of the compatible outdoor basis units as the [DP1100](https://www.froggit.de/media/products/DP1100_BDA_DE_.pdf) or [WH3000](https://www.froggit.de/media/products/WH3000_BDA_Ausseneinheit_DE_.pdf)
 
-# Sensor Specification
-
-### GW1000/DP1500 WiFi hub:
-
--   Frequency: 868Mhz
--   Air temperature range: -10°C to +60°C, resolution: 0.1°C, accuracy: +/- 1°C
--   Air humidity range: 10% - 99%, Resolution: 1%, accuracy: +/- 5%.
--   Air pressure range: 300-1100hPa, resolution: 0.1 hPa, accuracy: +/- 5hPa
--   Power supply: USB 5V
-
-### DP50 temperature/humidity sensor:
-
--   Frequency: 868Mhz
--   Air temperature range: -10°C to +60°C, resolution: 0.1.°C, accuracy: +/- 1°C
--   Air humidity range: 10% - 99%, resolution: 1%, accuracy: +/- 5%.
--   Transmission interval: 48 seconds
--   Power supply: 2 x 1.5V AA batteries
-
-### Base Unit:
-
--   Frequency: 868Mhz
--   Temperature range: -40°C to +60°C, accuracy: +/- 1°C
--   Air humidity range: 10% - 99%, accuracy: +/- 5%
--   Precipitation: range 0-9999mm, resolution +/- 0.25mm, accuracy: +/- 10%
--   Wind speed: 0-50m/s, accuracy: +/- 3.5 km/h or 10%
--   Wind speed/gust calculation every 16 s
--   Wind direction accuracy: +/- 1°
--   UVI: range: 0 - 15 index, UV accuracy: +/- 15%
--   Solar radiation: range 0 - 200k Lux, accuracy +/- 15%
--   Measuring interval outdoor unit: 16 seconds
--   Power supply: Outdoor unit: 2 x 1.5V AA batteries. The primary energy source is the solar panel. The batteries provide backup power when solar energy is limited.
 
 ## Calibration Concept
 

@@ -5,19 +5,19 @@ project:
 website:
   open-graph: true
   page-navigation: true  
-  title: "gisma knowledge base"
-  site-url: https://gisma-courses.github.io/gisma-knowledge-base
-  repo-url: https://github.com/gisma-courses/gisma-knowledge-base
+  title: "your site name"
+  site-url: https://yourgithubname.github.io/yourreponame
+  repo-url: https://yourgithubname.com/gisma-courses/yourreponame
   repo-actions: [edit, issue]
   search: 
     location: navbar
     type: textbox
-  page-footer: "gisma (2021)" 
+  page-footer: "xyz (2021)" 
   twitter-card:
-    creator: "@creuden"
-  comments:
-    utterances:
-      repo: gisma-courses/gisma-knowledge-base
+    creator: "@yxz"
+  # comments:
+  #   utterances:
+  #     repo: yourgithubname/yourreponame
   navbar:
     logo: /images/logooil.jpg
     left:
@@ -53,20 +53,19 @@ website:
           - index.md
           - base/about.md
       - text: "---"
-      - section: "Low Cost UAV"
+      - section: "topic1"
         contents:
-          - uav/uav-index.qmd
-          - uav/listing1.qmd
-          - uav/products.qmd
+          - topic1/topic1-index.qmd
+          - topic1/page1.qmd
           # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-introduction/
           #   text: Basic Readings        
           # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-fieldwork/
           #   text: uav/Flight Planning
       - text: "---"
-      - section: "Micro-Climate"
+      - section: "topic2"
         contents:
-          - mclim/mc-index.qmd
-          - mclim/sensors.qmd
+          - topic2/topic2-index.qmd
+          
 
 #format: dokuwiki
 format:
