@@ -1,23 +1,26 @@
 ---
-title: "YOUR ORGANIZATION TITLE"
-author: "YOU!"
+title: "YOUR  TITLE"
+author: "Peter PAN"
 institute: "YOUR ORGANIZATION"
-date: today
-title-slide-attributes: # this is if you want a background image on the title screen. Use the right path to the image you want
-  data-background-image: "space.jpg"
+date: last-modified
+date-format: "DD MMM, YYYY"
+title-slide-attributes: # title screen only
+  data-background-image: "preview-image-mof.png"
   data-background-size: contain
-  data-background-opacity: "0.5"
+  data-background-opacity: "0.7"
 format:
   organization-revealjs:
-    theme: default
+    theme: simple 
     echo: true
     highlight-style: github
     slide-number: true
     width: 1600
     height: 900
     footer: "[YOUR ORG](https://example.com/)"
-    header: This is the header extension
-    header-logo: slide1/logooil.jpg
+    header: the incredible talk about making sense scales
+    header-logo: logo2.png
+    hide-from-titleSlide: text
+
     spotlight:
       useAsPointer: true
       size: 5
@@ -37,13 +40,17 @@ options(tidyverse.quiet=TRUE)
 library(tidyverse)
 ```
 
-## { background-image="space.jpg" background-opacity="0.5" } 
+## { background-image="preview-image-mof.png" background-opacity="0.7" background-size="contain"  } 
+::: header
 
 This is a slide with a background image
 
-# NEW SECTION
+:::
 
-## Bullets
+
+# NEW SECTION 
+
+## Bullets 
 
 Remove the incremental ::: bracketed div for plain lists
 

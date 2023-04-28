@@ -3,59 +3,24 @@ title: |-
   Scales in Geography and Ecology \
   A neverending story 
 subtitle: A review of sense and nonsense
-short-title: Nonsense Scales
-published: "Under review at *the final geofrontier*"
-code-repo: "Access the code, data, and analysis at <https://github.com/gisma-courses>"
-correspondence-prefix: "Correspondence concerning this article should be addressed to"
 author:
   - name: Per Petterson
-    email: pepe@gemail.com
-    orcid: 0000-0000-0000-0000
-    title: Head of the Pack
-    affiliations:
-      - id: 01
-        name: D--House
-        department: chill bay
-        address: 1234 Main Street
-        city: Anytown
-        region: anyregion
-        country: anycountry
-        postal-code: 00000
-    attributes:
-      corresponding: true
   - name: Peter Pan
-    email: pp@gemail.com
-    title: networker
-    affiliations:
-      - id: 09
-        name: B--House
-        department: chill bay
-        address: 1234 Main Street
-        city: Anytown
-        region: anyregion
-        country: anycountry
-        postal-code: 00000
+
 abstract: |
  Scales are an essential concept in geography that refer to the relationship between the size of an object or phenomenon on the ground and its representation on a map. Geographic scales can range from the global, to regional, to local, and are used to communicate the spatial extent and resolution of geographic data. The selection of an appropriate scale is critical in understanding and analyzing spatial relationships, as it influences the accuracy and precision of spatial data. Geographic scales are also relevant to various fields of geography, including human geography, physical geography, and geographic information science. Understanding scales is fundamental to effectively communicating and interpreting geographic information, as well as developing effective spatial analysis and decision-making tools. This abstract highlights the importance of scales in geography, emphasizing their role in shaping our understanding of the spatial dimensions of the world around us.
-thanks: |-
- Placeholder text generated at <https://chat.openai.com/>.
-additional-info: |-
-  We have no known conflict of interest to disclose.
-keywords:
-  - theory 
-  - concept
-  - spatial thinking
+
 date: March 24, 2023
-# epigraph:
-#   - text: War is good for business. 
-#     source: Ferengi Rule of Acquisition 34
-#   - text: Peace is good for business. 
-#     source: Ferengi Rule of Acquisition 35
+
 bibliography: references.bib
+# format:
+#   pdf: default
+#   bj-pdf:
+#     keep-tex: true  
 format:
-  pdf: default
-  bj-pdf:
-    keep-tex: true  
+  odt:
+    number-sections: true
+    highlight-style: github
 
 # format:
 #   docx:
