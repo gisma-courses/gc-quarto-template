@@ -56,6 +56,12 @@ format:
   pdf: default
   bj-pdf:
     keep-tex: true  
+
+# format:
+#   docx:
+#     number-sections: true
+#     highlight-style: github
+    
 # format:
 #   hikmah-pdf: default
 #   hikmah-manuscript-docx: default
