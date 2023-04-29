@@ -1,0 +1,11 @@
+---
+title: "Git, GitHub & Rstudio"
+
+---
+
+## Quiz
+![](../images/github-Rstudio.jpg)
+
+<iframe width="100%" height="1280" src="https://gisma.shinyapps.io/rstudio-github-git/" frameborder="0"> </iframe>
+
+

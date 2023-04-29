@@ -79,7 +79,7 @@ Some text on the right of the slide
 
 The text on this slide will be, um, _smaller_.
 
-## Speaker Notes
+# Speaker Notes
 
 This is how to add speaker notes and replace the footer on a single slide.
 
