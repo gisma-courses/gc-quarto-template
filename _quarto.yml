@@ -17,8 +17,7 @@ website:
     creator: "@yxz"
   # comments:
   #   utterances:
-  #     repo: gisma-courses/gisma-knowledge-base
-
+  #     repo: yourgithubname/yourreponame
   navbar:
     logo: /images/logooil.jpg
     left:
@@ -34,14 +33,10 @@ website:
       - icon: check2-square
         text: Test It
         href: assessment/slidelist.qmd   
-      
     right:
       - icon: chat-left-text-fill
         text: Ilias
         href: https://ilias.uni-marburg.de/login.php?target=&client_id=UNIMR&cmd=force_login
-
-    
-         
     tools: 
       - icon: github
         href: https://github.com/gisma-courses/gisma-knowledge-base
@@ -58,20 +53,19 @@ website:
           - index.md
           - base/about.qmd
       - text: "---"
-      - section: "Low Cost UAV"
+      - section: "topic1"
         contents:
-          - uav/uav-index.qmd
-          - uav/listing1.qmd
-          - uav/products.qmd
+          - topic1/topic1-index.qmd
+          - topic1/page1.qmd
           # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-introduction/
           #   text: Basic Readings        
           # - href: https://gisma-courses.github.io/LV-uav-workflow/modules/module-fieldwork/
           #   text: uav/Flight Planning
       - text: "---"
-      - section: "Micro-Climate"
+      - section: "topic2"
         contents:
-          - mclim/mc-index.qmd
-          - mclim/sensors.qmd
+          - topic2/topic2-index.qmd
+          
 
 #format: dokuwiki
 format:
