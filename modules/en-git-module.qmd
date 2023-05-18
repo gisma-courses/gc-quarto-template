@@ -3,12 +3,500 @@ title: "Git, GitHub & Rstudio [EN]"
 
 ---
 
-![](../images/github-Rstudio.jpg){width="75%"}
+```{=html}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.6.1/mermaid.min.js"></script>
+```
+<style>
+svg[id^="mermaid-"] { min-width: 50%; max-width: 100%; }
+</style>
 
-## Module Overview
+![](../images/github-Rstudio.jpg){width="100%"}
 
-This module is about the version control system Git, the cloud services GitHub/GitLab and using them with RStudio as an IDE.
+## Module overview
 
-### Content
+This module is about the version control system `git`, the cloud service `GitHub` and their use in `RStudio`.
 
-<iframe width="120%" height="4750px" src="http://137.248.191.201:3838/git/"   scrolling="no" frameborder="0"> </iframe>
+`git` is a version control system that allows the creation of snapshots of files or entire directory trees.
+Combining and comparing such snapshots is also convenient.
+
+`GitHub` is the best-known cloud-based working environment based on `Git` and also offers a variety of web-based tools and services.
+
+RStudio' as a so-called integrated development environment (IDE) is a desktop application that not only offers generic programming support for R/Python, but also supports scientific writing and documentation, data and texts very well. Through the complete integration of 'Pandoc' and 'Tex', it also offers extensive and very convenient support for the creation of documents in the form of texts in all conceivable formats, interactive documents and websites.
+
+### Learning objectives
+
+At the end of the module you will be able to use `git`, `GitHub` and `Rstudio` efficiently.
+Special emphasis will be placed on practical application.
+Specifically, we will deal with:
+
+- What is version control?
+- What is the difference between `git` and `GitHub`?
+- The central operations, `Pull`, `Status`, `Add`, `Commit`, `Push`.
+- Avoiding and resolving version conflicts
+- Use with `RStudio`
+
+## Git and GitHub made easy
+
+### Learning objectives
+
+In the sub-module *Git and GitHub made easy* you will learn:
+
+- the concept of version control
+- the areas of application of GitHub and Git
+
+### Prerequisites
+
+- navigate and work with your file manager
+- a basic understanding of file and folder structures
+- set up a [GitHub account](https://github.com/join)
+- installed [`git`](https://git-scm.com/downloads)
+- installed [R] and [RStudio
+
+### Overview
+
+What is version control and what is it good for?
+Version control systems are software tools that help people manage changes to text, source code, scientific analysis or documentation.
+
+In the event of an error, authors can view the changes and compare them with previous (partial) versions to make corrections while minimising disruption to their own work or the work of team members.
+
+For example, you have a folder in which you have a project that consists of various files (text, programme code, images, sound files, etc.), and you want to keep track of the changes you have made to these files.
+
+The software `git` logs all changes to these files.
+How does it do this?
+
+1\.
+Tell `git` that you want to log a file or directory.
+
+2\.
+Tell `git` that you want to log the state of the file at a certain time.
+
+So this process is divided into two steps that need to be controlled and triggered.
+In order to be able to make defined changes, it must be specified what is to be monitored and it must be explicitly confirmed that a defined state is to be saved.
+In principle, therefore, a snapshot of the file or project must be saved in a confirmed manner, as is known.
+
+The big difference, however, is that only the changes of this saving process are recorded and can later be restored in these partial steps.
+
+#### Git - First Steps
+
+When using Git, the first step is to activate a repository *in* a directory on the local computer.
+This is done with the command `git init`.
+Now Git knows where to track, but not what to track.
+
+```{mermaid}
+%%| fig-cap: initialisation of a repository
+
+graph LR
+
+    A[Create a <br> new folder] 
+    B[Local folder <br> MyFolder] -- git init --> C[Local repository <br> MyFolder]
+    C -.- D(git monitors 'MyFolder'  but knows *no* contents)  
+
+    classDef gr fill:#9f6,stroke:#333,stroke-width:2px
+    classDef bl fill:#6BC9F5,stroke:#333,stroke-width:4px
+    classDef or fill:orange,stroke:#333,stroke-width:1px,stroke-dasharray: 3
+    classDef or2 fill:orange,stroke:#333,stroke-width:3px,stroke-dasharray: 1
+    class A or2
+    class B,C gr
+    class D or
+
+%%{init: {'theme':'forest'}}%%
+
+
+```
+
+
+
+However, the changes to files in the project will **only** be applied if `git` is explicitly *"informed "* of what is to be done with these files. This is done with the two commands `git add` and `git commit`. The command, `git push` is used when the committed directory snapshot is to be committed to a remote repository (e.g. Github, GitLab).
+
+```{mermaid}
+%%| fig-cap: process stage commit push a file
+
+graph LR
+    Z(Create a <br> new file)
+    
+    A[Local directory ] -- git add 'filename' --> B[File in <br>staging area]
+    B -- git commit --> C[file version in <br>local repository ]
+    C -- git push --> D[file version in <br> remote repository ]
+    
+    AA[Empty folder] -.-> BB(git monitors the file)
+    BB -.-> CC(git backs up local <br> current state of file)
+    CC -.-> DD(git saves remotely <br> current state of the file)
+    
+
+    classDef green fill:#9f6,stroke:#333,stroke-width:2px
+    classDef blue fill:#6BC9F5,stroke:#333,stroke-width:4px
+    classDef orange fill:orange,stroke:#333,stroke-width:1px,stroke-dasharray: 3
+    class A blue
+    class B,C,D green
+    class Z,DD,CC,AA,BB orange
+
+
+```
+
+
+
+With the command `git status` you get an overview of the status of all files within an initialised repository folder. You should be able to interpret the output of this command:
+
+![git status - conceptual content](../images/64_git-status.PNG){width="85%" height="85%"}
+
+### Good to know
+
+::: {.box .ok}
+If you want to learn more about Git, you can find more helpful resources here:
+
+- [Pro Git: Chapter **Git Basics**](https://git-scm.com/book/en/v2)
+- [Happy Git with R](https://happygitwithr.com/)
+:::
+
+## Git/GitHub: pull, status, add, commit, push
+
+### Learning objectives
+
+Based on the information from the previous chapter, in this lesson you will learn how to 
+
+- create a local repository in a folder
+- make changes to a remote repository
+- manage a local repository
+
+
+### Practical use of git and GitHub
+
+There are two typical scenarios for using git and GitHub.
+
+1. you haven't started the project yet and want a GitHub repository that you can copy (clone) to your computer as a template and then fill locally with files and directories as you wish.
+2. you have already started the project locally and want to copy it to GitHub.
+
+Both scenarios are excellently explained by Jenny Bryan. Please read them and follow the instructions. 
+
+- Scenario 1: Happy Git With R: Chapter 15 [New Project GitHub](https://happygitwithr.com/new-github-first.html#new-github-first)
+- Scenario 2: Happy Git With R: Chapter 17 [Existing Project, GitHub](https://happygitwithr.com/existing-github-last.html#existing-github-last)
+
+### Typical problems
+
+- You try to run `git commit` after making changes to a file, but you don't track that file(s).
+    Therefore, you need to run `git add` first.
+
+- You are trying to run `git push` to push your updates to the remote repository, but it does not exist.
+
+- You are trying to run `git push` to commit your updates to the remote repository, even though there are already new updates in the remote repository (e.g. from another team member) that you have not yet committed to the local project.
+    The error message you get will look something like this:
+
+::: warning
+Error: Your local changes to the following files would be overwritten during the merge: ... Please commit or save your changes before merging.
+:::
+
+So you're telling your local `git` to add your own changes without taking your teammate's changes into account - a classic loyalty conflict.
+The best way to avoid this problem is to always do a `git pull` before you start editing locally.
+
+### Good to know
+
+:::: {.box .ok}
+For a better understanding read the following texts:
+
+- [pull tricky](https://happygitwithr.com/pull-tricky.html).
+- [Git basics](https://git-scm.com/book/en/v2)
+- [Git and R](https://happygitwithr.com/)
+- [Rstudio - git - GitHub](https://happygitwithr.com/rstudio-git-github.html)
+
+::::
+
+### Self-Check
+
+::: { .scbox }
+[![](../images/git-0-self.png)](http://137.248.191.201:3838/de/git/#section-git-in-a-nutshell)
+:::
+
+
+
+
+## Fork and Branches on GitHub
+
+### Learning objectives
+
+In this lesson you will learn
+
+- What a fork/branch of a GitHub repository is.
+- How to create a branch of a GitHub repository.
+- How to update a GitHub repository from a branch.
+
+### Prerequisites
+
+- Familiarity with GitHub repositories.
+- Git must be installed on your computer.
+- A GitHub account!
+
+### What is a fork/branch?
+
+When working in groups on GitHub projects, it gets annoying when one person has to commit all the code to the repository alone.
+This is where forks and branches come in.
+- With branches, you can take a copy of the current GitHub project and make changes on your own computer.
+Once you and your group have made changes to the code, you can paste the changes back into your original project group.
+- Branches can also be used if you want to work on one part of a project separately from the other parts.
+- Forks are very similar, except that they are copies or clones of a complete project in a different location.
+
+#### How do I create a branch?
+
+To create a branch from a GitHub repository, go to the main repository you want to work on and click on the dropdown menu that should say "main".
+It should look like the following image.
+
+![Branch Menu in GitHub](https://docs.github.com/assets/cb-78797/mw-1440/images/help/branches/branch-selection-dropdown.webp){width="75%" height="75%"}
+
+Once you click on this menu, a text box appears on GitHub saying "Find or create a branch...", you enter a new name for the branch, e.g.
+'newbranch1'.
+Since this branch doesn't exist yet, GitHub asks you if you want to create a branch with the name "newbranch1".
+Click on "Create branch: newbranch1" and the new branch will be created for you, as shown in the following image.
+
+![Create a new branch](https://docs.github.com/assets/cb-54840/mw-1440/images/help/branches/create-branch-text.webp){width="40%" height="40%"}
+
+#### How do you make a pull request?
+
+A pull request allows the owner of the GitHub project to review your changes to make sure they fit into the current repository and don't cause conflicts in your repository.
+
+To make a pull request from your branch, you must first make a change to your branch repository.
+Once you have made a change to your branch, a yellow bar will appear on your screen asking you if you want to make a pull request.
+As you can see in the picture below, there is a green button, and as soon as you click on it, you can create a pull request.
+
+![Initialisation of a pull request](https://uoftcoders.github.io/rcourse/image/git_lesson/yellow_prompt.png){width="100%" height="100%"}
+
+Once you click on the button, GitHub will inform you if there are any problems merging the branch with the main project.
+If there are no problems, GitHub will put a tick and show "Able to merge".
+You can then add a title and comment to your pull request to let the repository owner know what you've done.
+Once you have entered a comment and a title, you can click on "Create a pull request".
+Once you have done this, a notification will be sent to the repository owner that your changes are ready for review.
+
+After you submit your request, the GitHub project owner can go to the project's page and click on the "Pull Requests" tab.
+This page will display a list of pull requests from which the owner can select your request.
+Once on the Pull Request page, the owner will see a button that says "Merge pull request" (similar to the image below).
+
+![Edit a pull request](https://docs.github.com/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png){width="77%" height="77%"}
+
+Once the owner clicks on the green button, he will be asked again if he wants to make the change.
+When he clicks the button again, the change is merged with the main branch and he sees something like the following picture....
+
+![Merge a verified pull request](https://uoftcoders.github.io/rcourse/image/git_lesson/delete_branch.png){width="100%" height="100%"}
+
+### Updating a repository in a branch (or fork)
+
+When someone in your group makes a change to the master repo, there is a way to update your branch so you can see the changes.
+When a change is made, the branched repo web page will show that your repo is "1 commit behind the master".
+This means that there is 1 change between your fork and the main repository.
+
+If you want to update your fork, click on the "Changes" button.
+You will then be taken to a page that says "main is up to date with all commits from branch. Try changing the base".
+Click on "Change base".
+It will then show if the branch can be merged.
+If so, click on `Create pull request' (title and comment for your request) and create a pull request.
+
+Now click on 'Merge pull request', then on 'Confirm merge' and your branch will be updated!
+
+### Good to know
+
+::: {.box .ok}
+- Learn how to create branches using the terminal: [Working with Branches](https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/)
+- Learn how to use pull requests and issues: [Issues and Pull Requests](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-branches)
+- Learn how to fork a GitHub repository: [forking a repository](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+:::
+
+### Self-check
+
+::: { .scbox }
+[![](../images/git-1-self.png)](http://137.248.191.201:3838/de/git/#section-github---fork-und-branch)
+:::
+
+## Dealing with conflicts
+
+### Learning objectives
+
+In this lesson you will learn
+
+- How to deal with conflicts that arise when working with GitHub.
+- How to deal with merge conflicts in GitHub.
+
+### Prerequisites
+
+- Familiarity with GitHub.
+- Have Git installed.
+- Have a GitHub account.
+
+### Version conflict - what is it?
+
+Version conflicts usually occur when different versions of the same file are pushed to the main repository at the same time and the prioritisation of the files is not clear, ie:
+
+- when updating one's personal GitHub repository (no pull before push).
+- when several people are working on the same file at the same time
+
+### Push & Pull conflicts
+
+A typical scenario is that you edit something online on GitHub and don't sync that change to Rstudio at the same time or later.
+The conflict could be, for example
+you fix a typo in the README and forget to update the current version in the Rstudio project.
+
+
+A more complicated case is when a change has been made in the master repository and someone else in their branch/fork repository has also made a change to the same file/content.
+the same content.
+When a pull request is made, GitHub will notice the difference.
+Again, it may be something as simple as two people updating the README in different ways, causing GitHub to report a problem.
+
+In this case, you have to manually decide which variant takes precedence.
+
+If you make a change to your GitHub repository and there is a conflict, R will show you that your version is ahead of the master repository when you commit your change.
+If you see this, it means there is a difference between the files.
+If you try to commit and there is a problem, GitHub will tell you something like
+
+::: warning
+Updates were rejected because the remote repository contains work that you don't have locally.
+This is usually caused by another repository pushing to the same reference.
+:::
+
+When this message appears, GitHub recommends that you do a pull from your master repository to find the error.
+Often you will get the error message
+
+::: warning
+CONFLICT (content): Conflict merging into \[file\].
+Automatic merge failed; resolve conflicts and then commit the result.
+:::
+
+The file with the problem is then opened in your RStudio and shows the error found.
+It shows what changes have been made and what differences there are to the main branch (the changes are shown under '<<<<<<< HEAD', the contents of the main branch are shown underneath).
+You need to fix the bug between the two versions, either by keeping what GitHub already has, or by tweaking your change to match what you wanted to do.
+When you are happy with your change, open the terminal (located in R, a tab above the console).
+In the terminal, type `git add [filename]`, press Enter and go back to the Git tab at the top right of the RStudio window.
+Select the file where the error occurred and overwrite it to fix the error.
+
+### Merge conflicts
+
+If multiple people are working on the same GitHub repository or you are only using one branch, there is a chance that a **merge conflict** will occur.
+Merge conflicts occur when changes are made to the main repository and to a branch that do not match.
+Once a pull request is made, the repository owner must manually review the changes, they cannot then be merged automatically.
+
+Consequently, GitHub will tell you that it cannot automatically merge the versions, but it will still allow you to make the pull request.
+If you decide to send the pull request, the repo owner will not be able to click the green `merge` button, but will see a message saying:
+
+:: warning
+This branch has conflicts that need to be resolved.
+:::
+
+To the right of this message is the `Resolve Conflicts` button.
+
+When you click on the 'Resolve conflicts' button, you will be taken to a page that looks similar to push or pull errors.
+You will see the suggested changes from the branch and main repository.
+At this point, changes can then be made and finally successfully deployed for a merge with `Mark as Resolved` and then `Confirm Merge`.
+Finally, the owner must click `Merge Pull Request` and then `Commit Merge` to make the change in the master repository.
+
+### Good to know
+
+::: {.box .ok }
+
+- **Always** `pull` before `push`, otherwise GitHub will have two different changes stored and won't know which one to use.
+
+- For more information about [handling conflicts](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts) in GitHub, see the GitHub Docs.
+
+:::
+
+### Self-check
+
+::: { .scbox }
+[![](../images/git-1-self.png)](http://137.248.191.201:3838/de/git/#section-github---konflikte-l%C3%B6sen)
+:::
+
+## RStudio - All Inclusive
+
+### Learning objectives
+
+- Using GitHub directly from RStudio
+
+### Prerequisites
+
+- Practice in working with GitHub and git
+
+### Integrating an existing GitHub repo into R
+
+Before working with a GitHub repository in RStudio, make sure you have a GitHub repository to work with.
+
+After you have created the repository, you can click the green button to get a link to clone the repository.
+To open it in R, open R and click on the cube with the plus sign to create a new project, click on version control and then on Git.
+Now paste the URL you copied earlier and create the project.
+Now you have a project in R that is connected to GitHub.
+Now you can create new files and upload them to GitHub for others to see.
+
+### Explanation of the buttons/commands
+
+On the top right (depending on the configuration of RStudio) you will find the tabs `Environment`, `History...` Select the tab `Git` to see the Git commands.
+In this section you can decide which files to upload/delete, which changes to apply, which files to pull from the master repository, which files to push to the master repository.
+The changes made are checked here and branches can be created or changed.
+Let's now look at what the individual commands/buttons do.
+
+- Diff` If you click on Diff, a new window opens in R.
+    This window shows all the files that have changed (compared to the main repository) and also the changes you have made.
+    You can also use this window to commit the changes and move them out of the main repository.
+
+- Commit` Using Commit in the smaller window is similar to using it in the Diff window, you just need to select the files you want to commit to the repository and then commit the changes.
+
+- `Pull` Pull is pretty self-explanatory, it pulls files from the GitHub repository.
+    It is important to pull files before pushing to avoid possible conflicts with overlapping files.
+
+- `Push` pushes the files into the GitHub repository.
+    This feature is used when you have finished making changes to your files and are ready to upload them so others can view the new files.
+    The order for uploading these files would be: commit changes, pull from the repository and then push to the repository.
+
+- `History` The next icon is a small clock that represents the history of your work.
+    It shows the previous commits and what was changed in each commit.
+
+- Revert, Ignore and Shell' These commands can be found in a dropdown menu after clicking on the gear next to the clock.
+    With Revert you can undo all changes, with Ignore you can set up a gitignore (useful to block files you don't want to upload) and with Shell you can open your terminal and execute git commands there.
+
+- Branches' The next icon stands for branches.
+    When you click on this icon, you will be asked if you want to create a new branch.
+    As you learned in the Branches module of the Toolkit, branches are useful for testing changes without affecting the main branch in case an error occurs.
+    You can use the drop-down menu to the right of the branch icon to switch between branches.
+
+- `Terminal (optional)` You can run these GitHub commands with the RStudio commands, but you can also use the terminal in R to do the same.
+    All GitHub commands are in the form "git \_\_\_\_\_" and you can find them by typing "git" into your terminal.
+    This does the same as the R panel, but if you are more familiar with writing git commands in a terminal, it may work better for you.
+
+#### Turning an R project into a GitHub repository
+
+Sometimes you are working on a project in R and you forgot to create a GitHub repository for it.
+In this case, the package `usethis` can help you create a repo from within RStudio.
+With the function `usethis::use_git` the current project can be converted into a GitHub repo so that the files can be uploaded.
+- If you run this function for the first time, you will probably get an error, as you need a token from GitHub to do this.
+After calling `usethis::browse_github_token` a new window will open asking you to log in to your GitHub account.
+After logging in, permissions can be set and copied with the token.
+Once you have copied the token, call `usethis::edit_r_environment()` and save your token as "GITHUB_PAT=token".
+
+Once your token is set and your R is reset, you can use `use_git` and it will ask you if it is OK to commit your files to GitHub.
+If you answer yes to this question, you will be asked to restart your RStudio window to open the Git window and upload your files.
+After restarting RStudio, upload the changed files (if any) using the diff button.
+Now use `usethis::use_github` to send your files to a GitHub repository.
+- `use_github` will ask you if you have an ssh key, which you probably don't, so choose `https`.
+Then you will be asked if the title and description are acceptable.
+If so, you can answer yes and upload the file to GitHub!
+
+### Good to know
+
+::: {.successbox }
+For more information on using GitHub in RStudio, see the following link:
+
+- The blog entry [GitHub & Rstudio](https://resources.github.com/whitepapers/github-and-rstudio/) shows how to use Git in RStudio and goes into particular detail about the terminal commands.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kL6L2MNqPHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+:::
+
+### Self-check
+
+::: { .scbox }
+[![](../images/git-3-self.png)](http://137.248.191.201:3838/de/git/#section-github---workflow-in-rstudio)
+:::
+
+## Acknowledgements
+
+The tutorial is based on the [DoSStoolkit](https://dosstoolkit.com/).
+especially using the module [Git outta here](https://dosstoolkit.com/#git-outta-here) by [Mariam Walaa & Matthew Wankiewicz](https://dosstoolkit.com/#contributors). The translations and modifications as well as some of the graphics are by the author of this page.
+
+The original module can be called with the following R command.
+
+```{r eval=FALSE}
+learnr::run_tutorial("git_outta_here", package = "DoSStoolkit") 
+```
